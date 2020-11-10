@@ -1,3 +1,10 @@
 FROM google/cloud-sdk:alpine
 
-RUN apk add nss && apk add openjdk11 && apk add maven && gcloud components install app-engine-java
+LABEL maintainer "Ola Andersson <theborax@gmail.com>"
+
+RUN apk --no-cache add \
+	nss \
+	openjdk11 \
+	maven
+
+RUN gcloud components install app-engine-java
